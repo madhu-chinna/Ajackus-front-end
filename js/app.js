@@ -29,6 +29,18 @@ const resetFilterBtn = document.getElementById('resetFilterBtn');
 function renderEmployees() {
   employeeList.innerHTML = '';
   let paginated = getPaginatedEmployees();
+  if (paginated.length === 0) {
+    const msg = document.createElement('div');
+    msg.style.padding = '40px';
+    msg.style.fontSize = '1.2rem';
+    msg.style.color = '#888';
+    msg.style.width = '100%';
+    msg.style.textAlign = 'center';
+    msg.textContent = 'No employees found.';
+    employeeList.appendChild(msg);
+    renderPagination();
+    return;
+  }
   paginated.forEach(emp => {
     const card = document.createElement('div');
     card.className = 'employee-card';
@@ -98,6 +110,15 @@ searchBtn.addEventListener('click', () => {
   );
   currentPage = 1;
   renderEmployees();
+});
+
+// Show all employees when search input is cleared
+searchInput.addEventListener('input', () => {
+  if (searchInput.value.trim() === '') {
+    filteredEmployees = [...employees];
+    currentPage = 1;
+    renderEmployees();
+  }
 });
 
 // Filter
