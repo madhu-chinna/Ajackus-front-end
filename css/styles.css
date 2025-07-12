@@ -1,0 +1,280 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f6f6f6;
+    color: #222;
+}
+.header, .footer {
+    background: #333;
+    color: #fff;
+    padding: 24px 0 24px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.search-bar input {
+    padding: 8px;
+    font-size: 1rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+.search-bar button {
+    padding: 8px 16px;
+    background: #444;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 24px 0 0 40px;
+}
+.add-btn {
+    background: #2ecc40;
+    color: #fff;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.employee-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin: 32px 40px 0 40px;
+    justify-content: flex-start;
+}
+.employee-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    padding: 24px;
+    min-width: 260px;
+    max-width: 300px;
+    flex: 1 1 260px;
+    margin-bottom: 16px;
+}
+.card-actions {
+    margin-top: 16px;
+    display: flex;
+    gap: 8px;
+}
+.edit-btn, .delete-btn {
+    padding: 6px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.edit-btn {
+    background: #eee;
+    color: #222;
+}
+.delete-btn {
+    background: #fff;
+    color: #d00;
+    border: 1px solid #d00;
+}
+.footer {
+    margin-top: 40px;
+    justify-content: flex-start;
+    font-size: 1rem;
+}
+/* Filter sidebar as a block above the cards */
+.filter-sidebar {
+    position: static;
+    width: 100%;
+    max-width: 400px;
+    margin: 32px auto 0 auto;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    background: #fff;
+    border-radius: 8px;
+    padding: 24px;
+    z-index: 1;
+}
+.filter-sidebar h2 {
+    margin-top: 0;
+}
+.filter-sidebar label {
+    display: block;
+    margin-bottom: 12px;
+}
+.filter-sidebar input {
+    width: 100%;
+    padding: 6px;
+    margin-top: 2px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+.filter-sidebar button {
+    margin-right: 8px;
+    padding: 6px 14px;
+    border-radius: 4px;
+    border: none;
+    background: #444;
+    color: #fff;
+    cursor: pointer;
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 32px 0;
+    gap: 8px;
+}
+.pagination button {
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    background: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.pagination button.active {
+    background: #333;
+    color: #fff;
+    border: 1px solid #333;
+}
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+.modal-content {
+    background: #fff;
+    border-radius: 12px;
+    padding: 32px 40px;
+    min-width: 340px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.12);
+}
+.modal-content h2 {
+    margin-top: 0;
+    margin-bottom: 24px;
+}
+.modal-content label {
+    display: block;
+    margin-bottom: 12px;
+}
+.modal-content input, .modal-content select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 2px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-bottom: 16px;
+}
+.modal-content .modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+.modal-content button {
+    padding: 8px 20px;
+    border-radius: 4px;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.modal-content .cancel-btn {
+    background: #eee;
+    color: #222;
+}
+.modal-content .add-btn {
+    background: #007bff;
+    color: #fff;
+}
+/* Responsive Styles */
+@media (max-width: 900px) {
+    .employee-list {
+        flex-direction: column;
+        gap: 0;
+    }
+    .employee-card {
+        max-width: 100%;
+        min-width: 0;
+    }
+    .controls, .header, .footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    .filter-sidebar {
+        right: 10px;
+        top: 100px;
+    }
+}
+@media (max-width: 600px) {
+    .header, .footer, .controls, .employee-list {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .modal-content {
+        min-width: 90vw;
+        padding: 16px 8px;
+    }
+    .filter-sidebar {
+        max-width: 100%;
+        margin: 16px 0 0 0;
+        padding: 16px 8px;
+    }
+} 
+
+/* Main content flex layout */
+.main-content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 32px;
+    margin: 0 40px;
+}
+.employee-list {
+    flex: 1 1 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin: 32px 0 0 0;
+    justify-content: flex-start;
+}
+.filter-sidebar {
+    position: static;
+    min-width: 260px;
+    max-width: 320px;
+    margin: 32px 0 0 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    background: #fff;
+    border-radius: 8px;
+    padding: 24px;
+    z-index: 1;
+}
+@media (max-width: 1100px) {
+    .main-content {
+        flex-direction: column;
+        gap: 0;
+        margin: 0 10px;
+    }
+    .filter-sidebar {
+        max-width: 100%;
+        min-width: 0;
+        margin: 24px 0 0 0;
+    }
+    .employee-list {
+        margin: 32px 0 0 0;
+    }
+} 
